@@ -1,0 +1,64 @@
+body > .ui.container {
+    margin-top: 3em;
+}
+iframe {
+    border: none;
+    width: calc(100% + 2em);
+    margin: 0em -1em;
+    height: 300px;
+}
+iframe html {
+    overflow: hidden;
+}
+iframe body {
+    padding: 0em;
+}
+
+.ui.container > h1 {
+    font-size: 3em;
+    text-align: center;
+    font-weight: normal;
+}
+.ui.container > h2.dividing.header {
+    font-size: 2em;
+    font-weight: normal;
+    margin: 4em 0em 3em;
+}
+
+}
+.ui.table {
+    table-layout: fixed;
+}
+
+.counties :hover {
+    fill: red;
+}
+
+.county-borders {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 0.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+.background {
+    fill: none;
+    pointer-events: all;
+}
+
+.feature {
+    fill: #ccc;
+    cursor: pointer;
+}
+
+.feature.active {
+    fill: orange;
+}
+
+.mesh {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
