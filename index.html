@@ -14,12 +14,12 @@
 </head>
 
 <body>
-
+<div class="pusher">
 <div class="ui container">
 
-    <h1>kNight's Watch</h1>
-    <!--button id="toggle" class="ui button">Toggle</button-->
-    <div class="ui one column center aligned page grid">
+    <h1 class="ui header">kNight's Watch</h1>
+    <button id="toggle" class="ui button ">Toggle</button>
+    <div class="ui fourteen column center aligned page divided padded grid">
         <select class="ui centered search dropdown fluid">
             <option value="">State</option>
             <option value="1">Alabama</option>
@@ -76,21 +76,33 @@
     </div>
 </div>
 
+<div class="ui left demo vertical sidebar labeled icon menu">
+    <a class="item">
+        <i class="heartbeat icon"></i>
+        Hospitals
+    </a>
+    <a class="item">
+        <i class="lab outline icon"></i>
+        Pharmacy
+    </a>
+    <a class="item">
+        <i class="handshake icon"></i>
+        Healthcare Providers
+    </a>
+</div>
+<div class="ui container divider"></div>
 <div id="window" class="ui container">
     <div id="scene1" class="ui centered grid">
 
-        <div style="width:800px; height:400px" id="USmap" class="ui twelve wide column"></div>
-
-        <div class="animated zoomIn ui four wide column raised segment">
-            <p id="info1" class="texfield"></p>
-        </div>
+        <div id="USmap" style="width:500px; height:500px;" class="ui eight wide column padded grid"></div>
+        <div id="USmap2" style="width:500px; height:500px;" class="ui eight wide column padded grid"></div>
 
         <div class="animated zoomIn ui twelve wide column raised segment fluid">
             <p id="info2" class="'textfield"></p>
         </div>
     </div>
 </div>
-
+</div>
 
 </body>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -99,7 +111,8 @@
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="semantic/out/semantic.min.js"></script>
 <script src="js/app.js"></script>
-<script src="js/usmap.js"></script>
+<script src="js/MapFunctions.js"></script>
+<!--script src="js/usmap.js"></script-->
 <!--script src="js/bootstrap.min.js"></script-->
 
 </html>

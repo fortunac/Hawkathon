@@ -193,6 +193,25 @@ function USState(Targetsvg, stateID) {
             .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)); // updated for d3 v4
     }
 
+    function loaded(stateID) {
+        if (active.node() === this) return reset();
+        active.classed("active", false);
+        active = d3.select(this).classed("active", true);
+
+        var bounds = path.bounds(stateID),
+            dx = bounds[1][0] - bounds[0][0],
+            dy = bounds[1][1] - bounds[0][1],
+            x = (bounds[0][0] + bounds[1][0]) / 2,
+            y = (bounds[0][1] + bounds[1][1]) / 2,
+            scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
+            translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+        svg.transition()
+            .duration(750)
+            // .call(zoom.translate(translate).scale(scale).event); // not in d3 v4
+            .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)); // updated for d3 v4
+    }
+
     function reset() {
         active.classed("active", false);
         active = d3.select(null);
@@ -220,7 +239,7 @@ function USMapCounties(Targetsvg) {
 
     var width = $(Targetsvg).width(),
         height = $(Targetsvg).height(),
-        active = d3.select(null); 2
+        active = d3.select(null);
 
     var projection = d3.geoAlbersUsa() // updated for d3 v4
         .scale((width))
@@ -287,6 +306,7 @@ function USMapCounties(Targetsvg) {
             // .call(zoom.translate(translate).scale(scale).event); // not in d3 v4
             .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)); // updated for d3 v4
     }
+
 
     function reset() {
         active.classed("active", false);
@@ -408,7 +428,4 @@ function USMap(Targetsvg) {
     }
 }
 
-USStateCounties("#USmap", 25);
-
-$('#info1').html('25');
-$('#info2').html('25');
+USStateCounties("#USmap-inject", 25);
