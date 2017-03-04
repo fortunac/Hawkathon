@@ -54,6 +54,6 @@ for state in result:
     tmp = result[state]
     map(evaluateScore, tmp.values())
     if count:
-        print state
-        print stateData
         stateData[state]['SIR'] = totalScore
+
+print stateData
